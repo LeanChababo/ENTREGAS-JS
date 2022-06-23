@@ -46,16 +46,16 @@ function calcularMontoDevolver() {
 
 calcularMontoDevolver();
 
-let opcion = prompt("Que quiere hacer? 1) Aceptar prestamo  2) Ver nuevos montos  3) Salir corriendo");
+let opcion = ""
 
 while (opcion !=="3") {
+    opcion = prompt("Que quiere hacer? 1) Aceptar prestamo  2) Ver nuevos montos  3) Salir corriendo");
     if (opcion === "1") {
     alert("Felicidades contrato su prestamo!")
     opcion = "3"
     };
     if (opcion === "2") {
     calcularMontoDevolver();
-    break;
     };
 };
     
