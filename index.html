@@ -4,12 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <title>Entrega1</title>
 </head>
 <body>
+    <div>
+        <h1 class="text-center">Bienvenidos al comienzo de mi proyecto!</h1>
+        <p class="text-center">Aca vamos a utilizar events en un formu ;)</p>
+    </div>
+    <main id="mainContainer" class="container-fluid px-5">
+      <article class="px-5">
+        <form id="formulario" class="row g-3 px-5">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Mail</label>
+            <input type="email" class="form-control" id="inputEmail">
+          </div>
+          <div class="col-md-6">
+            <label for="inputName" class="form-label">Nombre y Apellido</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Nombre completo pibe">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Direccion de envio</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Calle falsa 123..">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">Direccion de cobro</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="2da Calle falsa 123..">
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">Localidad</label>
+            <select id="inputState" class="form-select">
+              <option selected>Elegi...</option>
+              <option>San Isidro</option>
+              <option>Tigre</option>
+              <option>San Fernando</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Codigo Postal</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Check condiciones de envio!
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <button id="boton-final" type="submit" class="btn btn-primary">Acepto</button>
+          </div>
+        </form>
+      </article>  
+    </main>
     
 
 
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
