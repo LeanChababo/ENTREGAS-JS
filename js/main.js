@@ -1,58 +1,16 @@
-const email = document.getElementById("Email")
+/* const email = document.getElementById("Email")
 const nombreCompleto = document.getElementById("nombreCompleto")
 const dni = document.getElementById("dni")
 const ciudad = document.getElementById("ciudad")
 const municipio = document.getElementById("municipio")
 const codigoPostal = document.getElementById("cp")
 const direccion = document.getElementById("direccion")
-const interes = 1.70;
+const interes = 1.70;*/
+
 const tiempo = 1
 
 
-
-const boton = document.getElementById("boton-final")
-
-const formResult = [];
-const precioDevolucion = [];
-
-boton.addEventListener("click", (event) => {
-    event.preventDefault()
-    const data = {
-        nombreCompleto: nombreCompleto.value,
-        email: email.value,
-        interes: interes,
-        dni: dni.value,
-        municipio: municipio.value,
-        ciudad: ciudad.value,
-        codigoPostal: codigoPostal.value,
-        direccion: direccion.value
-    }
-    formResult.push(data)
-    precioDevolucion.push({
-        interes: data.interes,
-        precio: 500000
-    })
-
-})
-
-
-
-function checkDni() {
-    if ((dni.length == 0) || (dni.length < 6) || (dni.length > 9)) {
-        let resultado = document.getElementById("resultado")
-        resultado.innerHTML = "ingresa un dni valido";
-        resultado.className = "p-2 mb-2 bg-dark text-white";
-    } else {
-        resultado.innerHTML = "";
-        resultado.className = "";
-    }  
-    
-}
-
-checkDni();
-
-
-
+const interes = 1.70;
 
 function select() {
     const selectPrice = document.getElementById("valorMonto");
@@ -66,31 +24,61 @@ function select() {
     creacionElemento.appendChild(valorDevolver)
 }
 
+function popUpError() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Uy que pasó!...',
+        text: 'rellena los campos!',
+    })
+}
 
-//estoy terminando de armar la logica para que valide el formulario y que me tire el alert con una de las librerias que vimos hoy
-/* function validarFormulario() {
-    
-} */
+function popUpTodoBien() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Tu Prestamo ha sido aceptado exitosamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+}
+
+function saveLocalStorage() {
+    const dni = document.getElementById("dni").value;
+    const email = document.getElementById("Email").value;
+    const nombreCompleto = document.getElementById("nombreCompleto").value;
+    const ciudad = document.getElementById("ciudad").value;
+    const municipio = document.getElementById("municipio").value;
+    const codigoPostal = document.getElementById("cp").value;
+    const direccion = document.getElementById("direccion").value;
+    const interes = 1.70;
+    localStorage.setItem("dataForm", JSON.stringify({nombre:nombreCompleto, email:email, dni:dni, ciudad:ciudad, municipio:municipio, cp:codigoPostal, direccion:direccion, interes:interes}));
+    console.log("los datos se guardaron pa");
+}
+
+function checkForm(evento) {
+    evento.preventDefault();
+    const dni = document.getElementById("dni").value;
+    const email = document.getElementById("Email").value;
+    const nombreCompleto = document.getElementById("nombreCompleto").value;
+    const ciudad = document.getElementById("ciudad").value;
+    const municipio = document.getElementById("municipio").value;
+    const codigoPostal = document.getElementById("cp").value;
+    const direccion = document.getElementById("direccion").value;
+
+    if  ((dni.length <= 6) || (dni.length >= 9)) {
+        popUpError();
+        return false;
+    } 
+
+    if (email.length < 7) {
+        popUpError()
+        return false;
+    }  
+    saveLocalStorage();
+    popUpTodoBien();
+}
+
+document.getElementById("boton-final").addEventListener("click", checkForm);
 
 
-/* function calcularMontoDevolver() {
-    
-    
-};
 
-calcularMontoDevolver(); */
-
-/*let opcion = ""
-
-while (opcion !=="3") {
-    opcion = prompt("Que quiere hacer? 1) Aceptar prestamo  2) Ver nuevos montos  3) Salir corriendo");
-    if (opcion === "1") {
-    alert("Felicidades contrato su prestamo!")
-    opcion = "3"
-    };
-    if (opcion === "2") {
-    calcularMontoDevolver();
-    };
-};
-    
-alert("Gracias por pensar en nosotros!"); */

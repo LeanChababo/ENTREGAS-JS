@@ -13,7 +13,7 @@
     </div>
     <main id="mainContainer" class="container-fluid px-5">
       <article class="px-5">
-        <form onsubmit="validarFormulario" id="formulario" class="row g-3 px-5">
+        <form id="formulario" class="row g-3 px-5">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Nombre y Apellido</label>
                 <input type="text" class="form-control" id="nombreCompleto" placeholder="Nombre completo pibe" required>
@@ -65,7 +65,7 @@
           </div>
           <div class="col-md-6">
             <label for="inputInteres" class="form-label">Interes</label>
-            <input type="number" class="form-control" id="inputDni" value= 1.70 placeholder="" required>
+            <input type="number" class="form-control" id="inputDni" value= 1.70  disabled>
           </div>
           <div class="col-md-12">
             <label for="inputInteres" class="form-label">Monto a devolver en 1 año</label>
@@ -100,5 +100,7 @@
 
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/sweetAlert.js"></script>
 </body>
 </html>
