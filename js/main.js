@@ -1,52 +1,86 @@
-let nombre = prompt("ingrese su nombre");
+const email = document.getElementById("Email")
+const nombreCompleto = document.getElementById("nombreCompleto")
+const dni = document.getElementById("dni")
+const ciudad = document.getElementById("ciudad")
+const municipio = document.getElementById("municipio")
+const codigoPostal = document.getElementById("cp")
+const direccion = document.getElementById("direccion")
 const interes = 1.70;
 const tiempo = 1
 
-function Hola() {
-    alert("Hola" + " " + nombre + " " + "bienvenido a nuestra sucursal de prestamos Argentinos online a 1 año");
-};
 
-Hola();
 
-function ElijaMonto() {
-    let monto = prompt("elija el monto de su prestamo 1= $100000 2= $250000 3= $500000 4= $750000 5= 1000000")
+const boton = document.getElementById("boton-final")
 
-    if (monto == 1) {
-        alert("su monto elegido es de $100000")
-        monto = 100000
-    } else if (monto == 2) {
-        alert("su monto elegido es de $250000")
-        monto = 250000
-    } else if (monto == 3) {
-        alert("su monto elegido es de $500000")
-        monto = 500000
-    } else if (monto == 4) {
-        alert("su monto elegido es de $750000")
-        monto = 750000
-    } else if (monto == 5) {
-        alert("su monto elegido es de $1000000")
-        monto = 1000000
-    } else {
-        alert("error, elija un numero valido");
-        ElijaMonto();
+const formResult = [];
+const precioDevolucion = [];
+
+boton.addEventListener("click", (event) => {
+    event.preventDefault()
+    const data = {
+        nombreCompleto: nombreCompleto.value,
+        email: email.value,
+        interes: interes,
+        dni: dni.value,
+        municipio: municipio.value,
+        ciudad: ciudad.value,
+        codigoPostal: codigoPostal.value,
+        direccion: direccion.value
     }
-    return monto;
+    formResult.push(data)
+    precioDevolucion.push({
+        interes: data.interes,
+        precio: 500000
+    })
+
+})
 
 
-}; 
+
+function checkDni() {
+    if ((dni.length == 0) || (dni.length < 6) || (dni.length > 9)) {
+        let resultado = document.getElementById("resultado")
+        resultado.innerHTML = "ingresa un dni valido";
+        resultado.className = "p-2 mb-2 bg-dark text-white";
+    } else {
+        resultado.innerHTML = "";
+        resultado.className = "";
+    }  
+    
+}
+
+checkDni();
 
 
 
-function calcularMontoDevolver() {
-    monto = ElijaMonto()
-    montoDevolver = (monto * interes * tiempo)
-    alert("su monto a devolver en 1 año es de: $" + montoDevolver)
+
+function select() {
+    const selectPrice = document.getElementById("valorMonto");
+    const x =(selectPrice.selectedOptions[0].value);
+    const valor = (x * interes * tiempo)
+
+
+    const creacionElemento = document.getElementById("montoDevolucion");
+    const valorDevolver = document.getElementById('valorTotal')
+    valorDevolver.textContent = valor;
+    creacionElemento.appendChild(valorDevolver)
+}
+
+
+//estoy terminando de armar la logica para que valide el formulario y que me tire el alert con una de las librerias que vimos hoy
+/* function validarFormulario() {
+    
+} */
+
+
+/* function calcularMontoDevolver() {
+    
     
 };
 
-calcularMontoDevolver();
+calcularMontoDevolver(); */
 
-let opcion = ""
+/*let opcion = ""
 
 while (opcion !=="3") {
     opcion = prompt("Que quiere hacer? 1) Aceptar prestamo  2) Ver nuevos montos  3) Salir corriendo");
@@ -59,4 +93,4 @@ while (opcion !=="3") {
     };
 };
     
-alert("Gracias por pensar en nosotros!");
+alert("Gracias por pensar en nosotros!"); */
