@@ -8,16 +8,12 @@ const direccion = document.getElementById("direccion")
 const interes = 1.70;*/
 
 const tiempo = 1
-
-
 const interes = 1.70;
 
 function select() {
     const selectPrice = document.getElementById("valorMonto");
     const x =(selectPrice.selectedOptions[0].value);
     const valor = (x * interes * tiempo)
-
-
     const creacionElemento = document.getElementById("montoDevolucion");
     const valorDevolver = document.getElementById('valorTotal')
     valorDevolver.textContent = valor;
@@ -70,7 +66,7 @@ function checkForm(evento) {
         return false;
     } 
 
-    if (email.length < 7) {
+    if (email.length < 11) {
         popUpError()
         return false;
     }  
